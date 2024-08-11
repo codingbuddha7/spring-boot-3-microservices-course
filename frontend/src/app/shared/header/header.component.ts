@@ -10,9 +10,9 @@ import {OidcSecurityService} from "angular-auth-oidc-client";
 })
 export class HeaderComponent implements OnInit {
 
-  private readonly oidcSecurityService = inject(OidcSecurityService);
   isAuthenticated = false;
   username = "";
+  private readonly oidcSecurityService = inject(OidcSecurityService);
 
   ngOnInit(): void {
     this.oidcSecurityService.isAuthenticated$.subscribe(

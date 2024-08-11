@@ -12,15 +12,15 @@ import org.springframework.kafka.core.KafkaTemplate;
 @RequiredArgsConstructor
 public class ObservabilityConfig {
 
-    private final KafkaTemplate kafkaTemplate;
+  private final KafkaTemplate kafkaTemplate;
 
-    @PostConstruct
-    public void setObservationForKafkaTemplate() {
-        kafkaTemplate.setObservationEnabled(true);
-    }
+  @PostConstruct
+  public void setObservationForKafkaTemplate() {
+    kafkaTemplate.setObservationEnabled(true);
+  }
 
-    @Bean
-    ObservedAspect observedAspect(ObservationRegistry registry) {
-        return new ObservedAspect(registry);
-    }
+  @Bean
+  ObservedAspect observedAspect(ObservationRegistry registry) {
+    return new ObservedAspect(registry);
+  }
 }

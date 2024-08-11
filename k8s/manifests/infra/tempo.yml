@@ -15,7 +15,7 @@ spec:
       containers:
         - name: tempo
           image: grafana/tempo:2.2.2
-          args: ["-config.file=/etc/tempo.yaml"]
+          args: [ "-config.file=/etc/tempo.yaml" ]
           volumeMounts:
             - name: tempo-config
               mountPath: /etc/tempo.yaml

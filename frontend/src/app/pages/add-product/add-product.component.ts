@@ -13,8 +13,8 @@ import {NgIf} from "@angular/common";
 })
 export class AddProductComponent {
   addProductForm: FormGroup;
-  private readonly productService = inject(ProductService);
   productCreated = false;
+  private readonly productService = inject(ProductService);
 
   constructor(private fb: FormBuilder) {
     this.addProductForm = this.fb.group({
@@ -23,6 +23,22 @@ export class AddProductComponent {
       description: ['', [Validators.required]],
       price: [0, [Validators.required]]
     })
+  }
+
+  get skuCode() {
+    return this.addProductForm.get('skuCode');
+  }
+
+  get name() {
+    return this.addProductForm.get('name');
+  }
+
+  get description() {
+    return this.addProductForm.get('description');
+  }
+
+  get price() {
+    return this.addProductForm.get('price');
   }
 
   onSubmit(): void {
@@ -40,21 +56,5 @@ export class AddProductComponent {
     } else {
       console.log('Form is not valid');
     }
-  }
-
-  get skuCode() {
-    return this.addProductForm.get('skuCode');
-  }
-
-  get name() {
-    return this.addProductForm.get('name');
-  }
-
-  get description() {
-    return this.addProductForm.get('description');
-  }
-
-  get price() {
-    return this.addProductForm.get('price');
   }
 }

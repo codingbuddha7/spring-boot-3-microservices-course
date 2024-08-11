@@ -62,7 +62,7 @@ metadata:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: mysql-pv
+  name: mysql-pv
 spec:
   storageClassName: 'standard'
   accessModes:
@@ -90,5 +90,7 @@ metadata:
   name: mysql-initdb-config
 data:
   initdb.sql: |
-    CREATE DATABASE IF NOT EXISTS order_service;
-    CREATE DATABASE IF NOT EXISTS inventory_service;
+    CREATE
+    DATABASE IF NOT EXISTS order_service;
+    CREATE
+    DATABASE IF NOT EXISTS inventory_service;

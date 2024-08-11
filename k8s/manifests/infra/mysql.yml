@@ -90,5 +90,7 @@ metadata:
   name: mysql-initdb-config
 data:
   initdb.sql: |
-    CREATE DATABASE IF NOT EXISTS order_service;
-    CREATE DATABASE IF NOT EXISTS inventory_service;
+    CREATE
+    DATABASE IF NOT EXISTS order_service;
+    CREATE
+    DATABASE IF NOT EXISTS inventory_service;
