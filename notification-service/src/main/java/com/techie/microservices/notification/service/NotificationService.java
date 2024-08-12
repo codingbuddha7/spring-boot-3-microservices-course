@@ -1,5 +1,6 @@
 package com.techie.microservices.notification.service;
 
+import com.techie.microservices.order.event.OrderPlacedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,11 +14,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Slf4j
 public class NotificationService {
-
   private final JavaMailSender javaMailSender;
 
-  @KafkaListener(topics = "order-placed")
-  public void listen(com.techie.microservices.order.event.OrderPlacedEvent orderPlacedEvent) {
+  @KafkaListener(topics = "order-placed", groupId = "notification-service")
+  public void listen(OrderPlacedEvent orderPlacedEvent) {
     log.info("Got Message from order-placed topic {}", orderPlacedEvent);
     MimeMessagePreparator messagePreparator = mimeMessage -> {
       MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
