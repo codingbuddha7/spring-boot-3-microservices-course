@@ -1,4 +1,4 @@
-# Spring Boot Microservices 1111
+# Spring Boot Microservices
 
 This repository contains the latest source code of the spring-boot-microservices tutorial
 
